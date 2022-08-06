@@ -1,6 +1,6 @@
 #include "ScheduleEntry.h"
 
-ScheduleEntry::ScheduleEntry(unsigned long startTime, unsigned long duration, PctPtr fct)
+ScheduleEntry::ScheduleEntry(unsigned long startTime, unsigned long duration, std::function<void(void)> fct)
 {
     this->startTime = startTime;
     this->duration = duration;
@@ -19,7 +19,8 @@ unsigned long ScheduleEntry::getDuration()
 {
     return duration;
 }
-PctPtr ScheduleEntry::getFct()
+
+std::function<void(void)> ScheduleEntry::getFct()
 {
     return fct;
 }

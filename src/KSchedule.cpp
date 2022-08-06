@@ -38,7 +38,7 @@ void KSchedule::loop()
     }
 }
 
-void KSchedule::schedule(PctPtr fct, unsigned long timePeriode)
+void KSchedule::schedule(std::function<void(void)> fct, unsigned long timePeriode)
 {
     ScheduleEntry *scheduleEntry = new ScheduleEntry(millis(), timePeriode, fct);
     scheduleList.push_back(scheduleEntry);

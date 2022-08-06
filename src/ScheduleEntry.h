@@ -1,21 +1,22 @@
 #ifndef SCHEDULE_ENTRY_h
 #define SCHEDULE_ENTRY_h
 
-typedef void (*PctPtr)( void );
+#include <functional>
 
-class ScheduleEntry {
-    
-    public:
-    ScheduleEntry(unsigned long startTime, unsigned long duration, PctPtr fct);
+class ScheduleEntry
+{
+
+public:
+    ScheduleEntry(unsigned long startTime, unsigned long duration, std::function<void(void)> fct);
     ~ScheduleEntry();
     unsigned long getStartTime();
     unsigned long getDuration();
-    PctPtr getFct();
-    
-    private:
+    std::function<void(void)> getFct();
+
+private:
     unsigned long startTime;
     unsigned long duration;
-    PctPtr fct;
-} ;
+    std::function<void(void)> fct;
+};
 
 #endif
