@@ -35,6 +35,7 @@ void KSchedule::loop()
     for (auto const entry : deleteList)
     {
         scheduleList.remove(entry);
+        delete entry;
     }
 }
 
